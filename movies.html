@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+{% block content %}
+<body style="background-image: url('/static/blog_pic6.jpg'); filter: blur(0px); background-size: cover; background-repeat: no-repeat;">
+  <br>
+  <h1 style="text-align: center;font-size: 35px;"><b><b>Movies Available</b></b></h1>
+  <br>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release Year</th>
+        <th>Genre</th>
+        <th>More Details</th>
+      </tr>
+    </thead>
+    {% for movie in movieDetails %}
+      <tr>
+        <td>{{ movie[1] }}</td>
+        <td>{{ movie[2] }}</td>
+        <td>{{ movie[3] }}</td>
+        <td><a href="{{ url_for('movie_details', movie_id=movie[0]) }}">Details</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+{% endblock content %}
